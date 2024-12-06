@@ -1,5 +1,5 @@
-IRCTC Railway Management System
-Problem Statement
+# IRCTC Railway Management System
+## Problem Statement
 Hey there, Mr. X. You have been appointed to design a railway management system like IRCTC, where users can come on the platform and
 check if there are any trains available between 2 stations.
 The app will also display how many seats are available between any 2 stations and the user can book a seat if the availability > 0 after
@@ -15,7 +15,7 @@ This project is a Railway Management System designed to mimic key functionalitie
 
 The backend is powered by Node.js, Express.js, and MySQL.
 
-Key Features
+## Key Features
 1. User Management
 Registration and Login with JWT-based authentication for secure access.
 2. Train Search and Booking
@@ -27,15 +27,15 @@ Role-based access controls for users and admins.
 4. Error Handling
 Comprehensive input validation and error responses.
 
-Project Setup
-Prerequisites
+## Project Setup
+### Prerequisites
 Ensure the following software is installed on your system:
 
 Node.js (v14 or later)
 MySQL (Database setup)
 Postman (for API testing)
 
-Environment Variables
+### Environment Variables
 Create a .env file in the project's root directory with the following configuration:
 
 env
@@ -47,16 +47,16 @@ DATABASE_NAME=db_irctc
 JWT_SECRET=jwt_secret
 API_KEY=admin_api_key
 
-Installation Steps
+### Installation Steps
 Clone the repository:
 git clone https://github.com/prachidubey15/IRCTC-WorkIndia.git
 cd IRCTC-WorkIndia
 
 
-Install dependencies:
+### Install dependencies:
 
 npm install
-Set up the MySQL database:
+#### Set up the MySQL database:
 
 Create a database named irctc_db.
 Use the SQL script in database/schema.sql to set up tables:
@@ -93,17 +93,17 @@ CREATE TABLE bookings (
 );
 
 
-Start the server:
+#### Start the server:
 npm start
 
 
 The server runs on port 3000 by default.
 Access APIs at: http://localhost:3000.
 
-API Endpoints
+### API Endpoints
 
-User Endpoints: 
-Register
+#### User Endpoints: 
+##### Register
 
 POST: http://localhost:3000/user/register
 Body: {
@@ -112,7 +112,7 @@ Body: {
     "password": "password"
 }
 
-Login
+##### Login
 
 POST: http://localhost:3000/user/login
 Body:{
@@ -121,7 +121,7 @@ Body:{
 }
 
 
-Check Train Availability
+##### Check Train Availability
 
 GET: http://localhost:3000/user/availability
 Query Parameters:
@@ -138,7 +138,7 @@ Response:{
     ]
 }
 
-Book Seats
+##### Book Seats
 
 POST: http://localhost:3000/user/book
 Body:
@@ -151,7 +151,7 @@ Response:{
 }
 
 
-View Bookings
+##### View Bookings
 
 GET: http://localhost:3000/user/getAllbookings
 Response:
@@ -166,8 +166,8 @@ Response:
 ]
 
 
-Admin Endpoints
-Add a Train
+#### Admin Endpoints
+##### Add a Train
 
 POST: http://localhost:3000/admin/create-train
 Body:{
@@ -182,7 +182,7 @@ Headers:
 x-api-key: Your admin API key stored in env.
 
 
-Update Seat Availability
+##### Update Seat Availability
 
 PUT: http://localhost:3000/admin/update-seats/:id
 Body:
@@ -197,7 +197,7 @@ Response:{
     "message": "Seats updated successfully"
 }
 
-Technologies Used
+### Technologies Used
 Node.js: Backend logic
 Express.js: RESTful API framework
 MySQL: Database for train, user, and booking data
@@ -205,5 +205,5 @@ JWT: Authentication and authorization
 bcrypt: Password hashing
 dotenv: Environment variable management
 
-Contributing
+### Contributing
 Feel free to fork the repository and make your contributions via pull requests. Any enhancements, bug fixes, or suggestions are welcome!
