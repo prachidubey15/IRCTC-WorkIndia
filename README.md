@@ -49,7 +49,7 @@ API_KEY=admin_api_key
 
 Installation Steps
 Clone the repository:
-git clone https://github.com/ujjawalkumar131/IRCTC_API_WorkIndia.git
+git clone https://github.com/prachidubey15/IRCTC-WorkIndia.git
 cd IRCTC_WorkIndia
 
 
