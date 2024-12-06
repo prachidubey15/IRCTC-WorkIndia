@@ -49,17 +49,23 @@ API_KEY=admin_api_key
 
 ### Installation Steps
 Clone the repository:
+```bash
 git clone https://github.com/prachidubey15/IRCTC-WorkIndia.git
 cd IRCTC-WorkIndia
+```
 
 
 ### Install dependencies:
-
+```bash
 npm install
+```
+
 #### Set up the MySQL database:
 
 Create a database named irctc_db.
 Use the SQL script in database/schema.sql to set up tables:
+
+```bash
 
 CREATE DATABASE irctc_db;
 USE irctc_db;
@@ -91,10 +97,13 @@ CREATE TABLE bookings (
     FOREIGN KEY (userId) REFERENCES users(id),
     FOREIGN KEY (trainId) REFERENCES trains(id)
 );
+```
 
 
 #### Start the server:
+```bash
 npm start
+```
 
 
 The server runs on port 3000 by default.
@@ -106,19 +115,25 @@ Access APIs at: http://localhost:3000.
 ##### Register
 
 POST: http://localhost:3000/user/register
-Body: {
+Body: 
+```bash
+{
     "name": "John Doe",
     "email": "john@example.com",
     "password": "password"
 }
+```
 
 ##### Login
 
 POST: http://localhost:3000/user/login
-Body:{
+Body:
+```bash
+{
     "email": "john@example.com",
     "password": "password"
 }
+```
 
 
 ##### Check Train Availability
@@ -127,7 +142,9 @@ GET: http://localhost:3000/user/availability
 Query Parameters:
 src: Source station (e.g., "Ranchi")
 dest: Destination station (e.g., "Delhi")
-Response:{
+Response:
+```bash
+{
     "available": true,
     "availableTrainCount": 1,
     "trains": [
@@ -137,24 +154,31 @@ Response:{
         }
     ]
 }
+```
 
 ##### Book Seats
 
 POST: http://localhost:3000/user/book
 Body:
+```bash
 {
     "id": 1,
     "seats": 2
 }
-Response:{
+```
+Response:
+```bash
+{
     "message": "Seats booked successfully"
 }
+```
 
 
 ##### View Bookings
 
 GET: http://localhost:3000/user/getAllbookings
 Response:
+```bash
 [
     {
         "booking_id": 17,
@@ -164,19 +188,23 @@ Response:
         "dest": "Delhi"
     }
 ]
+```
 
 
 #### Admin Endpoints
 ##### Add a Train
 
 POST: http://localhost:3000/admin/create-train
-Body:{
+Body:
+```bash
+{
     "trainNo": "172622",
     "src": "Delhi",
     "dest": "Mumbai",
     "total_seats": 200,
     "available_seats": 200
 }
+```
 
 Headers:
 x-api-key: Your admin API key stored in env.
@@ -186,16 +214,21 @@ x-api-key: Your admin API key stored in env.
 
 PUT: http://localhost:3000/admin/update-seats/:id
 Body:
+```bash
 {
     "total_seats": 200,
     "available_seats": 150
 }
+```
 
 Headers:
 x-api-key: Your admin API key stored in env.
-Response:{
+Response:
+```bash
+{
     "message": "Seats updated successfully"
 }
+```
 
 ### Technologies Used
 Node.js: Backend logic
